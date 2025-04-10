@@ -1,0 +1,66 @@
+name: tila_app_2
+description: "A new Flutter project."
+
+publish_to: 'none' 
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.3 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_launcher_icons: ^0.13.1
+  flutter_test:
+    sdk: flutter
+
+ 
+  flutter_lints: ^3.0.0
+
+
+flutter:
+   
+  
+  uses-material-design: true
+
+  
+  assets:
+      - assets/images/onboarding_image.jpg
+      - assets/images/woman_side.jpg
+      - assets/images/record.jpg
+      - assets/images/wonder_women.jpg
+      - assets/images/pta.png 
+      - assets/images/ptc.png
+      - assets/images/loginreg.jpg
+      - assets/images/loginpage.jpg
+      - assets/images/login2.jpg
+      - assets/images/google_logo.jpg
+      - assets/images/home_banner.jpg
+      - assets/images/emergency_call.jpg
+      - assets/images/record_incident.jpg
+      - assets/images/recordwvoice.jpg
+      - assets/images/recordwcamera.jpg
+      - assets/images/register.jpg
+      - assets/images/fakecall.jpg
+      - assets/images/firstmenu.jpg
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/ptb.png" 
+  adaptive_icon_background: "#A82AE3"  
+  adaptive_icon_foreground: "assets/images/ptb.png" 
+  remove_alpha_ios: true  
+
+
+
+
+ 
