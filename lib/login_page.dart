@@ -6,7 +6,6 @@ class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -15,176 +14,211 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+   
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Top Image
-            SizedBox(
-              width: double.infinity,
-              child: Image.asset(
-                "assets/images/login2.jpg",
-                fit: BoxFit.cover,
+      body: Stack(
+        children: [
+          
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: screenHeight * 0.4, 
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage("assets/images/login2.jpg"),
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
+              child: Container(
+                decoration: BoxDecoration(
+                 gradient: LinearGradient(
+  begin: Alignment.topCenter,
+  end: Alignment.bottomCenter,
+  colors: [
+ Colors.transparent,
+    Colors.white.withOpacity(0.7), 
+    Colors.white.withOpacity(0.95), 
+  ],
+),
 
-            const SizedBox(height: 20),
-
-            // "Login" Title
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 24),
-              child: Text(
-                "Login",
-                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-              ),
-            ),
-
-            const SizedBox(height: 20),
-
-            // Email Field
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: "E-mail",
-                  prefixIcon: const Icon(Icons.email),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
                 ),
               ),
             ),
+          ),
+          
+         
+          Positioned(
+            top: 40,
+            left: 10,
+            child: IconButton(
+              icon: Icon(Icons.arrow_back, color: Colors.black),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
 
-            const SizedBox(height: 15),
-
-            // Password Field
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: TextField(
-                obscureText: _obscurePassword,
-                decoration: InputDecoration(
-                  labelText: "Password",
-                  prefixIcon: const Icon(Icons.lock),
-                  suffixIcon: IconButton(
-                    icon: Icon(
-                      _obscurePassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        _obscurePassword = !_obscurePassword;
-                      });
-                    },
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
+         
+          Padding(
+            padding: const EdgeInsets.only(top: 300), 
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
+                  child: Text(
+                    "iogin",
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                   ),
                 ),
-              ),
-            ),
 
-            // Forgot Password
-            Padding(
-              padding: const EdgeInsets.only(right: 24, top: 10),
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: TextButton(
-                  onPressed: () {},
-                  child: const Text("Forgot Password?",
-                      style: TextStyle(color: Colors.blue)),
-                ),
-              ),
-            ),
+                const SizedBox(height: 40), 
 
-            const SizedBox(height: 10),
-
-            // Login Button
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => const HomePage()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
-                    foregroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: const Text("Login", style: TextStyle(fontSize: 18)),
-                ),
-              ),
-            ),
-
-            const SizedBox(height: 12),
-
-            // Google Login Button
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: SizedBox(
-                width: double.infinity,
-                child: OutlinedButton(
-                  onPressed: () {
-                    // Handle Google login
-                  },
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: Colors.purple,
-                    side: const BorderSide(color: Colors.purple),
-                    padding: const EdgeInsets.symmetric(vertical: 15),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image.asset(
-                        "assets/images/google_logo.jpg",
-                        height: 24,
+               
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: "E-mail",
+                      prefixIcon: const Icon(Icons.email),
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black), 
                       ),
-                      const SizedBox(width: 10),
-                      const Text("Login with Google",
-                          style: TextStyle(fontSize: 16)),
-                    ],
+                    ),
                   ),
                 ),
-              ),
-            ),
 
-            const SizedBox(height: 15),
+                const SizedBox(height: 15),
 
-            // Sign Up Link
-            Center(
-              child: GestureDetector(
-                onTap: () {
-                  // Navigate to RegisterPage
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RegisterPage()),
-                  );
-                },
-                child: const Text(
-                  "Don't have an account? Sign Up",
-                  style: TextStyle(
-                      color: Colors.blue,
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: TextField(
+                    obscureText: _obscurePassword,
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      prefixIcon: const Icon(Icons.lock),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            _obscurePassword = !_obscurePassword;
+                          });
+                        },
+                      ),
+                      border: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.black), 
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
 
-            const SizedBox(height: 20),
-          ],
-        ),
+               
+                Padding(
+                  padding: const EdgeInsets.only(right: 24, top: 10),
+                  child: Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text("Forgot Password?", style: TextStyle(color: Colors.blue)),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
+              
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const HomePage()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.purple,
+                        foregroundColor: Colors.white,
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      child: const Text("Login", style: TextStyle(fontSize: 18)),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 12),
+
+                
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: OutlinedButton(
+                      onPressed: () {
+                       
+                      },
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: Colors.purple,
+                        side: const BorderSide(color: Colors.purple),
+                        padding: const EdgeInsets.symmetric(vertical: 15),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Image.asset(
+                            "assets/images/google_logo.jpg",
+                            height: 24,
+                          ),
+                          const SizedBox(width: 10),
+                          const Text("Login with Google", style: TextStyle(fontSize: 16)),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 15),
+
+        
+                Center(
+                  child: GestureDetector(
+                    onTap: () {
+                      
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const RegisterPage()),
+                      );
+                    },
+                    child: const Text(
+                      "Don't have an account? Sign Up",
+                      style: TextStyle(
+                          color: Colors.blue,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

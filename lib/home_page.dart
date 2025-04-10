@@ -8,20 +8,20 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Image and Gradient (full width, height: 309)
+         
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: 309,
             child: Stack(
               children: [
-                // Background Image
+                
                 Positioned.fill(
                   child: Image.asset(
                     "assets/images/home_banner.jpg",
                     fit: BoxFit.cover,
                   ),
                 ),
-                // Gradient Overlay
+              
                 Positioned.fill(
                   child: Container(
                     decoration: const BoxDecoration(
@@ -45,7 +45,19 @@ class HomePage extends StatelessWidget {
             ),
           ),
 
-          // White background below image
+          
+          Positioned(
+            top: 40, 
+            left: 20, 
+            child: IconButton(
+              icon: const Icon(Icons.arrow_back, color: Color.fromARGB(255, 14, 3, 3)),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
+
+          
           Positioned(
             top: 309,
             left: 0,
