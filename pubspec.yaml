@@ -17,6 +17,7 @@ dependencies:
 
   
   cupertino_icons: ^1.0.6
+  lucide_icons: ^0.257.0
 
 dev_dependencies:
   flutter_launcher_icons: ^0.13.1
@@ -40,8 +41,6 @@ flutter:
       - assets/images/wonder_women.jpg
       - assets/images/pta.png 
       - assets/images/ptc.png
-      - assets/images/loginreg.jpg
-      - assets/images/loginpage.jpg
       - assets/images/login2.jpg
       - assets/images/google_logo.jpg
       - assets/images/home_banner.jpg

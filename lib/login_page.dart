@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
             right: 0,
             child: Container(
               height: screenHeight * 0.4, 
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage("assets/images/login2.jpg"),
                   fit: BoxFit.cover,
@@ -55,7 +55,7 @@ class _LoginPageState extends State<LoginPage> {
             top: 40,
             left: 10,
             child: IconButton(
-              icon: Icon(Icons.arrow_back, color: Colors.black),
+              icon: const Icon(Icons.arrow_back, color: Colors.black),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -80,12 +80,12 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 40), 
 
                
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 24),
                   child: TextField(
                     decoration: InputDecoration(
                       labelText: "E-mail",
-                      prefixIcon: const Icon(Icons.email),
+                      prefixIcon: Icon(Icons.email),
                       border: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.black), 
                       ),
@@ -112,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                           });
                         },
                       ),
-                      border: UnderlineInputBorder(
+                      border: const UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.black), 
                       ),
                     ),

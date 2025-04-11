@@ -164,7 +164,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   _controller.nextPage(
                       duration: const Duration(milliseconds: 300), curve: Curves.ease);
                 } else {
-                  // Navigate to the login/register screen when on the last page
+                  
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const LoginRegisterScreen()),

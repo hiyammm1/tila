@@ -1,4 +1,4 @@
-import 'dart:ui'; // For BackdropFilter (this can now be removed)
+import 'dart:ui'; 
 import 'package:flutter/material.dart';
 import 'login_page.dart';
 import 'register_page.dart';
@@ -11,7 +11,7 @@ class LoginRegisterScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // Gradient Background (covers the entire screen)
+          
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
@@ -19,15 +19,15 @@ class LoginRegisterScreen extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    Colors.grey.shade300, // Light gray (silver) at the top
-                    Colors.grey.shade600, // Darker gray at the bottom
+                    Colors.grey.shade300, 
+                    Colors.grey.shade600, 
                   ],
                 ),
               ),
             ),
           ),
 
-          // Background Image (this remains at the top as before)
+          
           SizedBox(
             width: MediaQuery.of(context).size.width,
             height: 309,
@@ -44,21 +44,21 @@ class LoginRegisterScreen extends StatelessWidget {
             ),
           ),
 
-          // Content (Title, Description, Buttons) on top of the gradient and image
+         
           Align(
-            alignment: Alignment.bottomCenter, // Align at the bottom of the screen
+            alignment: Alignment.bottomCenter, 
             child: Container(
               width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height / 2, // Half screen height
-              decoration: BoxDecoration(
-                // Optional rounded corners for the content area
-                borderRadius: const BorderRadius.only(
+              height: MediaQuery.of(context).size.height / 2, 
+              decoration: const BoxDecoration(
+           
+                borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight: Radius.circular(30),
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(20), // Padding inside the container for spacing
+                padding: const EdgeInsets.all(20), 
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,7 +69,7 @@ class LoginRegisterScreen extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 26,
                         fontWeight: FontWeight.w700,
-                        color: Colors.black, // Set color to black
+                        color: Colors.black, 
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -108,7 +108,7 @@ class LoginRegisterScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
 
-                    // Register Button (Outlined)
+                    // Register Button 
                     SizedBox(
                       width: 324,
                       child: OutlinedButton(
